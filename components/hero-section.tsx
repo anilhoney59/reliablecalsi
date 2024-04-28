@@ -7,22 +7,24 @@ type Props = {};
 export default function HeroSection({}: Props) {
   return (
     <>
-      <section className="layout-container h-[80vh] flex items-center justify-between">
-        {/* Left - content */}
+      {/* text-4xl text-center md:text-left md:text-6xl font-bold leading-[1.2] */}
+      <section className="layout-container flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between">
         <div className="">
-          <h1 className="text-6xl font-bold leading-[1.2]">
+          <h1 className="mt-3 text-center text-4xl font-semibold lg:text-left lg:text-6xl">
             Design your home <br /> from{" "}
             <span className="text-primary-orange">Professionals</span>
           </h1>
-          <p className="text-xl font-medium text-neutral-600 mb-5">
+          <p className="mb-5 text-center text-sm font-medium text-neutral-600 md:text-xl">
             One-stop solution to all your architectural design needs
           </p>
-          <Button title="Contact to Engineer" size="lg" />
+          <div className="flex w-full items-center justify-center md:justify-start">
+            <Button title="Contact to Engineer" size="lg" />
+          </div>
         </div>
-        {/* Right - hero image */}
-        <div className="-mr-20">
+
+        <div className="relative">
           <Image
-            className="relative"
+            className="b"
             src={"/hero.svg"}
             width={"550"}
             height={"550"}

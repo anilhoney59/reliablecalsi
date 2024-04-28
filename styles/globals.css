@@ -84,5 +84,5 @@
 /* Styling */
 
 .layout-container {
-  @apply md:max-w-7xl mx-auto;
+  @apply mx-auto max-w-full p-5 sm:max-w-6xl md:max-w-7xl;
 }

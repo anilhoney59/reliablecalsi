@@ -6,11 +6,11 @@ type Props = {};
 export default function CTASection({}: Props) {
   return (
     <>
-      <div className="bg-primary-orange py-20 flex flex-col gap-5 items-center justify-center">
-        <span className="text-6xl font-semibold text-center text-white">
+      <div className="mt-20 flex flex-col items-center justify-center gap-5 bg-primary-orange py-10 lg:py-20">
+        <span className="text-center text-3xl font-semibold text-white lg:text-6xl">
           Get in touch <br /> with enginner now
         </span>
-        <button className="text-xl bg-white rounded-full py-4 px-5 font-medium text-primary-orange">
+        <button className="rounded-full bg-white px-5 py-2 font-medium text-primary-orange lg:px-5 lg:py-4 lg:text-xl">
           Contact to Engineer
         </button>
       </div>

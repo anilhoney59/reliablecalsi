@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import HeaderLogo from "./ui-components/header-logo";
 import { navbarItems, socialsLinks } from "../utils/content";
@@ -6,20 +8,26 @@ import Link from "next/link";
 type Props = {};
 
 export default function Footer({}: Props) {
+  const year = new Date().getFullYear();
   return (
     <>
-      <div className="layout-container my-20 flex justify-between">
+      <div className="layout-container flex flex-col items-center gap-10 py-10 md:flex-row md:justify-between">
         {/* Left */}
-        <HeaderLogo />
+        <div className="flex flex-col items-center">
+          <HeaderLogo />
+          <span className="text-xs text-neutral-500">
+            © {year} - Reliable Design | All rights reserved
+          </span>
+        </div>
         {/* Center */}
-        <div className="w-fit flex gap-5 ">
+        <div className="flex w-fit gap-5 ">
           {navbarItems.map((item, index) => {
             return (
               <>
                 <Link
                   href={item.href}
                   key={index}
-                  className="font-medium hover:text-primary-orange h-fit w-fit"
+                  className="h-fit w-fit font-medium hover:text-primary-orange"
                 >
                   {item.title}
                 </Link>

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import { playfair } from "../../app/fonts";
@@ -8,7 +10,7 @@ export default function HeaderLogo() {
     <Link href="/">
       <div className="flex flex-col">
         <h1
-          className={` ${playfair.className} font-bold text-2xl text-primary-orange`}
+          className={` ${playfair.className} text-2xl font-bold text-primary-orange`}
         >
           {SITE_NAME}
         </h1>
