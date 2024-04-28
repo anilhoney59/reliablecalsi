@@ -24,7 +24,6 @@ export default function HeroSection({}: Props) {
 
         <div className="relative">
           <Image
-            className="b"
             src={"/hero.svg"}
             width={"550"}
             height={"550"}
