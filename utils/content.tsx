@@ -1,8 +1,17 @@
 import { navbarItemsProps, ServicesProps, socialLinksProps } from "./types";
-import { FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
+// Change your content from here
 export const SITE_NAME = "Reliable Design";
 export const TAGLINE = "Architect | Vastu | Structural";
+const WP_NUMBER = 911234567890;
+
+export const WP_LINK = `https://wa.me/${WP_NUMBER}?text=Hi,%20can%20you%20help%20me%20with...`;
+
+// Function to open whatsapp
+export const openUrl = (WP_LINK: string) => {
+  window.open(WP_LINK);
+};
 
 // Do not change these items
 export const navbarItems: navbarItemsProps[] = [
@@ -22,12 +31,14 @@ export const navbarItems: navbarItemsProps[] = [
 
 export const socialsLinks: socialLinksProps[] = [
   {
-    title: "",
-    icon: <FaTwitter />,
+    title: "YouTube",
+    icon: <FaYoutube />,
+    href: "https://youtube.com/",
   },
   {
-    title: "",
-    icon: <FaTwitter />,
+    title: "Instagram",
+    icon: <FaInstagram />,
+    href: "https://instagram.com/",
   },
 ];
 

@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { openUrl, WP_LINK } from "../../utils/content";
 
 export default function Button({
   title,
@@ -18,7 +21,8 @@ export default function Button({
   return (
     <>
       <button
-        className={`bg-primary-orange hover:bg-orange-600 rounded-full font-medium text-white ${buttonSizeClass} ${className}`}
+        onClick={() => openUrl(WP_LINK)}
+        className={`rounded-full bg-primary-orange font-medium text-white hover:bg-orange-600 ${buttonSizeClass} ${className}`}
       >
         {title}
       </button>

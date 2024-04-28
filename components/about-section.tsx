@@ -8,7 +8,10 @@ export default function AboutSection({}: Props) {
   return (
     <>
       {/* layout-container flex justify-between py-20 items-center */}
-      <div className="layout-container flex flex-col-reverse lg:mt-20 lg:flex-row ">
+      <div
+        className="layout-container flex flex-col-reverse lg:mt-20 lg:flex-row "
+        id="about"
+      >
         {/* Left side */}
         <div className="flex-1">
           <h2 className="mb-5 text-3xl font-semibold text-primary-orange md:mb-10 md:text-5xl">

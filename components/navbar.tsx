@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { navbarItems } from "../utils/content";
+import { navbarItems, openUrl, WP_LINK } from "../utils/content";
 import Button from "./ui-components/button";
 import HeaderLogo from "./ui-components/header-logo";
 import {
@@ -40,13 +40,13 @@ export default function Navbar() {
           </NavbarBrand>
         </NavbarContent>
 
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarContent className="hidden gap-4 sm:flex" justify="center">
           {navbarItems.map((item, index) => {
             return (
               <NavbarItem>
                 <a
                   href={item.href}
-                  className="text-base text-neutral-700 hover:text-primary-orange transition-colors ease-in-out"
+                  className="text-base text-neutral-700 transition-colors ease-in-out hover:text-primary-orange"
                   key={index}
                 >
                   {item.title}
@@ -58,13 +58,14 @@ export default function Navbar() {
         <NavbarContent justify="end">
           {/* <Button title={"Contact"} className={""} /> */}
           <button
-            className={`hidden sm:block bg-primary-orange hover:bg-orange-600 rounded-full font-medium text-white text-base px-4 py-2`}
+            onClick={() => openUrl(WP_LINK)}
+            className={`hidden rounded-full bg-primary-orange px-4 py-2 text-base font-medium text-white hover:bg-orange-600 sm:block`}
           >
             Contact
           </button>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="sm:hidden text-primary-orange"
+            className="text-primary-orange sm:hidden"
           />
         </NavbarContent>
         <NavbarMenu>
@@ -73,7 +74,7 @@ export default function Navbar() {
               <NavbarMenuItem>
                 <a
                   href={item.href}
-                  className="text-base text-neutral-700 hover:text-primary-orange transition-colors ease-in-out"
+                  className="text-base text-neutral-700 transition-colors ease-in-out hover:text-primary-orange"
                   key={index}
                 >
                   {item.title}

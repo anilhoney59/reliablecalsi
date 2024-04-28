@@ -13,7 +13,7 @@ export default function Footer({}: Props) {
     <>
       <div className="layout-container flex flex-col items-center gap-10 py-10 md:flex-row md:justify-between">
         {/* Left */}
-        <div className="flex flex-col items-center">
+        <div className="flex w-fit flex-col items-center lg:items-start">
           <HeaderLogo />
           <span className="text-xs text-neutral-500">
             © {year} - Reliable Design | All rights reserved
@@ -39,9 +39,13 @@ export default function Footer({}: Props) {
         <div className="flex gap-5">
           {socialsLinks.map((item, index) => {
             return (
-              <div className="text-2xl text-primary-orange" key={index}>
+              <a
+                className="text-2xl text-primary-orange"
+                key={index}
+                href={item.href}
+              >
                 {item.icon}
-              </div>
+              </a>
             );
           })}
         </div>

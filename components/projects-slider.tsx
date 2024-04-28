@@ -35,11 +35,15 @@ export default function ProjectsSlider() {
               <>
                 <SwiperSlide key={index}>
                   <div className="relative flex h-[300px] w-full items-center justify-center sm:h-screen sm:w-screen">
+                    <div className="absolute bottom-5 left-0 z-10 w-full bg-neutral-600/20 px-5 text-lg font-medium text-white shadow-xl backdrop-blur-sm">
+                      {item.title}
+                    </div>
                     <Image
                       src={item.img}
                       alt={item.title}
-                      fill
-                      objectFit="contain"
+                      fill={true}
+                      objectFit="cover"
+                      className="h-screen w-screen"
                     />
                   </div>
                 </SwiperSlide>
