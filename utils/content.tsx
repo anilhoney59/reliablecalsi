@@ -93,7 +93,7 @@ export const servicesItem: ServicesProps[] = [
     title: "Vastu",
     width: 250,
     height: 250,
-    imgSrc: "/architecture.svg",
+    imgSrc: "/vastu.jpg",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, sapiente!",
   },
