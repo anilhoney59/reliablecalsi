@@ -18,19 +18,6 @@ import {
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
-
   return (
     <>
       <NavbarEl onMenuOpenChange={setIsMenuOpen} maxWidth="xl" className="py-1">
@@ -40,23 +27,27 @@ export default function Navbar() {
           </NavbarBrand>
         </NavbarContent>
 
-        <NavbarContent className="hidden gap-4 sm:flex" justify="center">
-          {navbarItems.map((item, index) => {
-            return (
-              <NavbarItem>
-                <a
-                  href={item.href}
-                  className="text-base text-neutral-700 transition-colors ease-in-out hover:text-primary-orange"
-                  key={index}
-                >
-                  {item.title}
-                </a>
-              </NavbarItem>
-            );
-          })}
-        </NavbarContent>
+        {/* <NavbarContent
+          className="hidden gap-4 sm:flex"
+          justify="center"
+        ></NavbarContent> */}
         <NavbarContent justify="end">
           {/* <Button title={"Contact"} className={""} /> */}
+          <div className="hidden gap-4 sm:flex">
+            {navbarItems.map((item, index) => {
+              return (
+                <NavbarItem>
+                  <a
+                    href={item.href}
+                    className="text-base text-neutral-700 transition-colors ease-in-out hover:text-primary-orange"
+                    key={index}
+                  >
+                    {item.title}
+                  </a>
+                </NavbarItem>
+              );
+            })}
+          </div>
           <button
             onClick={() => openUrl(WP_LINK)}
             className={`hidden rounded-full bg-primary-orange px-4 py-2 text-base font-medium text-white hover:bg-orange-600 sm:block`}
