@@ -14,7 +14,7 @@ import {
   NavbarMenuItem,
   Link,
 } from "@nextui-org/react";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -56,19 +56,24 @@ export default function Navbar() {
             Contact
           </button>
           <NavbarMenuToggle
-            icon={<RxHamburgerMenu size={28} />}
+            icon={
+              isMenuOpen ? (
+                <RxCross2 size={28} />
+              ) : (
+                <RxHamburgerMenu size={28} />
+              )
+            }
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="text-primary-orange sm:hidden"
+            className="text-primary-orange ease-in-out sm:hidden"
           />
         </NavbarContent>
-        <NavbarMenu>
+        <NavbarMenu className="py-10">
           {navbarItems.map((item, index) => {
             return (
-              <NavbarMenuItem>
+              <NavbarMenuItem onClick={() => setIsMenuOpen(false)}>
                 <a
-                  onClick={() => setIsMenuOpen(false)}
                   href={item.href}
-                  className="text-base text-neutral-700 transition-colors ease-in-out hover:text-primary-orange"
+                  className="text-2xl font-medium text-neutral-700 transition-colors ease-in-out hover:text-primary-orange"
                   key={index}
                 >
                   {item.title}
