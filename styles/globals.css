@@ -10,6 +10,10 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --swiper-theme-color: #ff5722 !important;
+}
+
 /* 
   Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
 */
@@ -89,4 +93,10 @@ html {
 
 .layout-container {
   @apply mx-auto max-w-full p-5 sm:max-w-6xl md:max-w-7xl;
+}
+
+.slider-image {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
