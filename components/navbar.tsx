@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import { navbarItems, openUrl, WP_LINK } from "../utils/content";
 import Button from "./ui-components/button";
 import HeaderLogo from "./ui-components/header-logo";
@@ -19,13 +19,25 @@ import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const navbarToggleRef = useRef();
+  // const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  // const [activeMenu, setActiveMenu] = useState(
+  //   window.location.href.split(`${window.location.origin}`)[1],
+  // );
+
+  // const handleSideMenu = (link) => {
+  //   setActiveMenu(link);
+  //   isSideMenuOpen && navbarToggleRef.current.click();
+  // };
 
   return (
     <>
-      <NavbarEl onMenuOpenChange={setIsMenuOpen} maxWidth="xl" className="py-1">
+      <NavbarEl
+        onMenuOpenChange={setIsMenuOpen}
+        isMenuOpen={isMenuOpen}
+        maxWidth="xl"
+        className="py-1"
+      >
         <NavbarContent>
           <NavbarBrand>
             <HeaderLogo />
@@ -80,6 +92,7 @@ export default function Navbar() {
                   className="text-2xl font-medium text-neutral-700 transition-colors ease-in-out hover:text-primary-orange"
                   key={index}
                   // onClick={closeMenu}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.title}
                 </a>
