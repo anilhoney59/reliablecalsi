@@ -24,11 +24,10 @@ export default function HeroSection({}: Props) {
 
         <div className="relative">
           <Image
-            src={"/hero.png"}
+            src={"/hero-section.webp"}
             width={"550"}
             height={"550"}
             alt="Hero Image"
-            loading="lazy"
           />
         </div>
       </section>
