@@ -19,6 +19,10 @@ import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <>
       <NavbarEl onMenuOpenChange={setIsMenuOpen} maxWidth="xl" className="py-1">
@@ -70,11 +74,12 @@ export default function Navbar() {
         <NavbarMenu className="py-10">
           {navbarItems.map((item, index) => {
             return (
-              <NavbarMenuItem onClick={() => setIsMenuOpen(false)}>
+              <NavbarMenuItem>
                 <a
                   href={item.href}
                   className="text-2xl font-medium text-neutral-700 transition-colors ease-in-out hover:text-primary-orange"
                   key={index}
+                  // onClick={closeMenu}
                 >
                   {item.title}
                 </a>

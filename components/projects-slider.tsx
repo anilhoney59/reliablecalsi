@@ -2,15 +2,8 @@
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  Navigation,
-  EffectFade,
-  Scrollbar,
-  A11y,
-  Pagination,
-} from "swiper/modules";
+import { Navigation, EffectFade, Pagination } from "swiper/modules";
 import { projectsItem } from "../utils/content";
-import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css";
@@ -26,7 +19,6 @@ export default function ProjectsSlider() {
           Some of our <br /> selected projects
         </h2>
       </div>
-      {/* h-[80vh] w-full bg-red-200 */}
       <div className="layout-container">
         <Swiper
           slidesPerView={1}
@@ -44,14 +36,13 @@ export default function ProjectsSlider() {
             return (
               <>
                 <SwiperSlide key={index}>
-                  <div className="relative flex h-fit w-full items-center justify-center rounded-md sm:h-[80vh] sm:w-full">
+                  <div className="relative flex h-full w-full items-center justify-center rounded-md sm:h-[80vh] sm:w-full">
                     <div className="absolute bottom-5 left-0 z-10 w-full bg-neutral-600/20 px-5 text-lg font-medium text-white shadow-xl backdrop-blur-sm">
                       {item.title}
                     </div>
-                    <Image
+                    <img
                       src={item.img}
                       alt={item.title}
-                      fill={true}
                       loading="lazy"
                       className="rounded-xl"
                     />
