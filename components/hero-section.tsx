@@ -28,6 +28,7 @@ export default function HeroSection({}: Props) {
             width={"550"}
             height={"550"}
             alt="Hero Image"
+            priority={true}
           />
         </div>
       </section>
