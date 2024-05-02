@@ -20,15 +20,6 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const navbarToggleRef = useRef();
-  // const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-  // const [activeMenu, setActiveMenu] = useState(
-  //   window.location.href.split(`${window.location.origin}`)[1],
-  // );
-
-  // const handleSideMenu = (link) => {
-  //   setActiveMenu(link);
-  //   isSideMenuOpen && navbarToggleRef.current.click();
-  // };
 
   return (
     <>
