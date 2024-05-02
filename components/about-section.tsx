@@ -7,7 +7,6 @@ type Props = {};
 export default function AboutSection({}: Props) {
   return (
     <>
-      {/* layout-container flex justify-between py-20 items-center */}
       <div
         className="layout-container flex flex-col-reverse lg:mt-20 lg:flex-row "
         id="about"
@@ -22,7 +21,7 @@ export default function AboutSection({}: Props) {
           </p>
         </div>
         {/* Right side */}
-        {/* lex h-fit w-1/2 justify-end */}
+
         <div className="flex h-fit lg:w-1/2 lg:justify-end">
           <Image src={"/profile.png"} width={500} height={500} alt="Profile" />
         </div>

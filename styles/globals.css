@@ -1,7 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -76,27 +73,8 @@ html {
   top: 80px;
   opacity: 0.15;
 }
-
-/* Slider styling */
-.embla {
-  overflow: hidden;
-}
-.embla__container {
-  display: flex;
-}
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
-}
-
 /* Styling */
 
 .layout-container {
   @apply mx-auto max-w-full p-5 sm:max-w-6xl md:max-w-7xl;
-}
-
-.slider-image {
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
 }

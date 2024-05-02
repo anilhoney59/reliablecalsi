@@ -1,4 +1,3 @@
-import { NextSeo } from "next-seo";
 import Navbar from "../components/navbar";
 import "../styles/globals.css";
 import { inter } from "./fonts";

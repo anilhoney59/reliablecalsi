@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import HeroSection from "../components/hero-section";
 import ProjectsSlider from "../components/projects-slider";

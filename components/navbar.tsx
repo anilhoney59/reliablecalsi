@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React from "react";
 import { navbarItems, openUrl, WP_LINK } from "../utils/content";
 import Button from "./ui-components/button";
 import HeaderLogo from "./ui-components/header-logo";
@@ -12,14 +12,11 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
 } from "@nextui-org/react";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-  const navbarToggleRef = useRef();
 
   return (
     <>
@@ -34,13 +31,7 @@ export default function Navbar() {
             <HeaderLogo />
           </NavbarBrand>
         </NavbarContent>
-
-        {/* <NavbarContent
-          className="hidden gap-4 sm:flex"
-          justify="center"
-        ></NavbarContent> */}
         <NavbarContent justify="end">
-          {/* <Button title={"Contact"} className={""} /> */}
           <div className="hidden gap-4 sm:flex">
             {navbarItems.map((item, index) => {
               return (
@@ -82,7 +73,6 @@ export default function Navbar() {
                   href={item.href}
                   className="text-2xl font-medium text-neutral-700 transition-colors ease-in-out hover:text-primary-orange"
                   key={index}
-                  // onClick={closeMenu}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.title}
