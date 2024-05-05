@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import { navbarItems, openUrl, WP_LINK } from "../utils/content";
 import Button from "./ui-components/button";
 import HeaderLogo from "./ui-components/header-logo";
@@ -17,6 +17,15 @@ import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const navbarToggleRef = useRef();
+  const [activeMenu, setActiveMenu] = useState(
+    window.location.href.split(`${window.location.origin}`)[1],
+  );
+
+  const handleSideMenu = (link) => {
+    setActiveMenu(link);
+    isMenuOpen && navbarToggleRef.current.click();
+  };
 
   return (
     <>

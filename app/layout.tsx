@@ -1,3 +1,4 @@
+import Nav from "../components/nav";
 import Navbar from "../components/navbar";
 import "../styles/globals.css";
 import { inter } from "./fonts";
@@ -15,7 +16,7 @@ const RootLayout = ({ children }) => {
     <html lang="en">
       <body className={`relative ${inter.className}`}>
         <Providers>
-          <Navbar />
+          <Nav />
           <main className="app">{children}</main>
           <div className="main">
             <div className="gradient" />
