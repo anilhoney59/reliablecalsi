@@ -91,6 +91,7 @@ const Nav = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
+            style={{ overflowY: "auto" }}
             className="absolute h-screen w-full overflow-hidden bg-white/90 backdrop-blur-xl backdrop-filter md:hidden"
           >
             <div className="flex h-screen flex-col space-y-5 px-2 pb-3 pt-6 sm:px-3">

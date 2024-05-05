@@ -3,9 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
+/* html {
+    scroll-behavior: smooth;
+  } */
 
 :root {
   --swiper-theme-color: #ff5722 !important;
