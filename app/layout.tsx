@@ -1,4 +1,5 @@
 import Nav from "../components/nav";
+
 import FloatingButton from "../components/ui-components/floating-button";
 import "../styles/globals.css";
 import { inter } from "./fonts";

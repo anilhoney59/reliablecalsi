@@ -11,6 +11,7 @@
   "dependencies": {
     "@nextui-org/react": "^2.3.6",
     "framer-motion": "^11.1.7",
+    "jquery": "^3.7.1",
     "next": "14.1.4",
     "next-seo": "^6.5.0",
     "react": "^18",
@@ -20,6 +21,7 @@
     "swiper": "^11.1.1"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.29",
     "@types/node": "20.12.7",
     "@types/react": "18.2.79",
     "autoprefixer": "^10.0.1",
