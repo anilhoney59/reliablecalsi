@@ -1,5 +1,5 @@
 import Nav from "../components/nav";
-import Navbar from "../components/navbar";
+import FloatingButton from "../components/ui-components/floating-button";
 import "../styles/globals.css";
 import { inter } from "./fonts";
 import { Providers } from "./providers";
@@ -21,6 +21,7 @@ const RootLayout = ({ children }) => {
           <div className="main">
             <div className="gradient" />
           </div>
+          <FloatingButton />
         </Providers>
       </body>
     </html>
