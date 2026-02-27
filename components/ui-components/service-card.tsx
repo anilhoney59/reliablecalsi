@@ -19,7 +19,7 @@ export default function ServiceCard({
         {/* Name */}
         <div className="flex flex-col gap-3">
           <div className="">
-            <span className="text-2xl font-medium text-primary-orange">
+            <span className="text-2xl font-medium text-theme">
               {title}
             </span>
           </div>

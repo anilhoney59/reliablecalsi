@@ -22,7 +22,7 @@ export default function Button({
     <>
       <button
         onClick={() => openUrl(WP_LINK)}
-        className={`rounded-full bg-primary-orange font-medium text-white hover:bg-orange-600 ${buttonSizeClass} ${className}`}
+        className={`rounded-full bg-theme hover-bg-theme font-medium text-white ${buttonSizeClass} ${className}`}
       >
         {title}
       </button>

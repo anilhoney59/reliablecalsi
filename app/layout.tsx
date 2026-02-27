@@ -1,9 +1,7 @@
 import Nav from "../components/nav";
-
 import FloatingButton from "../components/ui-components/floating-button";
 import "../styles/globals.css";
 import { inter } from "./fonts";
-
 
 import type { Metadata } from "next";
 
@@ -15,15 +13,13 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className={`relative ${inter.className}`}>
-
-          <Nav />
-          <main className="app">{children}</main>
-          <div className="main">
-            <div className="gradient" />
-          </div>
-          <FloatingButton />
-
+      <body className={`relative ${inter.className}`} suppressHydrationWarning>
+        <Nav />
+        <main className="app">{children}</main>
+        <div className="main">
+          <div className="gradient" />
+        </div>
+        <FloatingButton />
       </body>
     </html>
   );

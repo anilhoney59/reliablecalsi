@@ -21,26 +21,22 @@ export default function Footer({}: Props) {
         </div>
         {/* Center */}
         <div className="flex w-fit gap-5 ">
-          {navbarItems.map((item, index) => {
-            return (
-              <>
-                <Link
-                  href={item.href}
-                  key={index}
-                  className="h-fit w-fit font-medium hover:text-primary-orange"
-                >
-                  {item.title}
-                </Link>
-              </>
-            );
-          })}
+          {navbarItems.map((item, index) => (
+            <Link
+              key={index}
+              href={item.href}
+              className="h-fit w-fit font-medium hover-text-theme"
+            >
+              {item.title}
+            </Link>
+          ))}
         </div>
         {/* Socials */}
         <div className="flex gap-5">
           {socialsLinks.map((item, index) => {
             return (
               <a
-                className="text-2xl text-primary-orange"
+                className="text-2xl text-theme"
                 key={index}
                 href={item.href}
               >

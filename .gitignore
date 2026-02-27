@@ -27,6 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
@@ -34,3 +35,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# SSH keys - NEVER commit these
+123456
+123456.pub
+*.pub
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# Unnecessary nested project folders
+/reliablecasi/
+/Reliable_Designs/
+
+# Claude Code session data — never commit
+.claude/
+
+# Sharp temp files
+*.tmp.webp

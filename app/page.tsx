@@ -1,42 +1,34 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
+import dynamic from "next/dynamic";
 import HeroSection from "../components/hero-section";
-import ProjectsSlider from "../components/projects-slider";
 import ServicesSection from "../components/services-section";
 import AboutSection from "../components/about-section";
 import CTASection from "../components/cta-section";
 import Footer from "../components/footer";
-import { NextSeo } from "next-seo";
-import { smoothScroll } from "../utils/scroll";
+
+// Dynamically import the slider — defers Swiper's JS bundle until after
+// the hero is interactive, so it does not block initial page load.
+const ProjectsSlider = dynamic(() => import("../components/projects-slider"), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="layout-container mt-14"
+      style={{ height: "80vh", background: "#f3f4f6", borderRadius: 12 }}
+    />
+  ),
+});
 
 export default function page() {
-  useEffect(() => {
-    // smoothScroll();
-  }, []);
-
   return (
-    <>
-      <NextSeo
-        title="Reliable Design - Arcitect, Vastu and Structural Solutions"
-        description="One-stop solution to all your architectural design needs"
-        canonical="https://your-domain.com/"
-        themeColor="orange"
-        openGraph={{
-          type: "website",
-          locale: "en_IE",
-          url: "your-url-here",
-          siteName: "Reliable Design",
-        }}
-      />
-      <div className="">
-        <HeroSection />
-        <ProjectsSlider />
-        <ServicesSection />
-        <AboutSection />
-        <CTASection />
-        <Footer />
-      </div>
-    </>
+    <div className="">
+      <HeroSection />
+      <ProjectsSlider />
+      <ServicesSection />
+      <AboutSection />
+      <CTASection />
+      <Footer />
+    </div>
   );
 }

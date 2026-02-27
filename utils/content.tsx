@@ -4,7 +4,7 @@ import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 // Change your content from here
 export const SITE_NAME = "Reliable Design";
 export const TAGLINE = "Architect | Vastu | Structural";
-const WP_NUMBER = 911234567890;
+const WP_NUMBER = 918107449932;
 
 export const WP_LINK = `https://wa.me/${WP_NUMBER}?text=Hi,%20can%20you%20help%20me%20with...`;
 
@@ -27,6 +27,14 @@ export const navbarItems: navbarItemsProps[] = [
     title: "About",
     href: "#about",
   },
+  {
+    title: "House Cost Calculator",
+    href: "/construction-cost-calculator",
+  },
+  {
+    title: "Interior Calculator",
+    href: "/interior-cost-calculator",
+  },
 ];
 
 export const socialsLinks: socialLinksProps[] = [
@@ -45,11 +53,7 @@ export const socialsLinks: socialLinksProps[] = [
 export const projectsItem = [
   {
     title: "Project Name",
-    img: "/projects-imgs/project-1.png",
-  },
-  {
-    title: "Project Name",
-    img: "/projects-imgs/project-2.png",
+    img: "/assets/images/gif4.webp",
   },
   {
     title: "Project Name",
@@ -57,11 +61,15 @@ export const projectsItem = [
   },
   {
     title: "Project Name",
-    img: "/projects-imgs/project-4.png",
+    img: "/assets/images/jaipursite1_c.webp",
   },
   {
     title: "Project Name",
-    img: "/projects-imgs/project-5.png",
+    img: "/assets/images/ShastriNagarProject1_c.webp",
+  },
+  {
+    title: "Project Name",
+    img: "/assets/images/ShastriNagarProject2_c.webp",
   },
 ];
 

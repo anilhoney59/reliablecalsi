@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, EffectFade, Pagination } from "swiper/modules";
+import { Navigation, EffectFade } from "swiper/modules";
 import { projectsItem } from "../utils/content";
 
 // Import Swiper styles
@@ -14,8 +14,7 @@ export default function ProjectsSlider() {
   return (
     <>
       <div className="layout-container mt-14" id="projects">
-        {/* text-5xl font-semibold text-primary-orange */}
-        <h2 className="text-3xl font-semibold text-primary-orange md:mb-10 md:text-5xl">
+        <h2 className="text-3xl font-semibold text-theme md:mb-10 md:text-5xl">
           Some of our <br /> selected projects
         </h2>
       </div>
@@ -23,34 +22,43 @@ export default function ProjectsSlider() {
         <Swiper
           slidesPerView={1}
           spaceBetween={0}
-          modules={[Navigation, EffectFade, Pagination]}
-          // Uncomment below line to enable pagination
-          // pagination={{
-          //   dynamicBullets: true
-          // }}
+          modules={[Navigation, EffectFade]}
           navigation
-          effect={"fade"}
-          loop={true}
+          effect="fade"
+          loop={false}
         >
-          {projectsItem.map((item, index) => {
-            return (
-              <>
-                <SwiperSlide key={index}>
-                  <div className="relative flex h-full w-full items-center justify-center rounded-md sm:h-[80vh] sm:w-full">
-                    <div className="absolute bottom-5 left-0 z-10 w-full bg-neutral-600/20 px-5 text-lg font-medium text-white shadow-xl backdrop-blur-sm">
-                      {item.title}
-                    </div>
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      loading="lazy"
-                      className="rounded-xl"
-                    />
-                  </div>
-                </SwiperSlide>
-              </>
-            );
-          })}
+          {projectsItem.map((item, index) => (
+            <SwiperSlide key={index}>
+              {/* Fixed-height frame — every slide is the same box */}
+              <div className="relative w-full h-[300px] sm:h-[480px] md:h-[560px] rounded-xl overflow-hidden">
+
+                {/* Blurred background — fills any letterbox/pillarbox gaps */}
+                <img
+                  src={item.img}
+                  alt=""
+                  aria-hidden="true"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover scale-110"
+                  style={{ filter: "blur(18px) brightness(0.55)" }}
+                />
+
+                {/* Main image — contained inside the frame, never cropped */}
+                <div className="relative z-10 flex items-center justify-center w-full h-full">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    loading={index === 0 ? "eager" : "lazy"}
+                    fetchPriority={index === 0 ? "high" : "low"}
+                    decoding={index === 0 ? "sync" : "async"}
+                    className="max-w-full max-h-full object-contain"
+                    style={{ maxHeight: "inherit" }}
+                  />
+                </div>
+
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </>

@@ -29,7 +29,7 @@ const Nav = () => {
                 return (
                   <a
                     href={item.href}
-                    className="text-base text-neutral-700 transition-colors ease-in-out hover:text-primary-orange"
+                    className="text-base text-neutral-700 transition-colors ease-in-out hover:text-theme"
                     key={index}
                   >
                     {item.title}
@@ -38,7 +38,7 @@ const Nav = () => {
               })}
               <button
                 onClick={() => openUrl(WP_LINK)}
-                className={`hidden rounded-full bg-primary-orange px-4 py-2 text-base font-medium text-white hover:bg-orange-600 sm:block`}
+                className="hidden rounded-full px-4 py-2 text-base font-medium text-white sm:block bg-theme hover-bg-theme transition-colors"
               >
                 Contact
               </button>
@@ -47,7 +47,7 @@ const Nav = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-primary-orange focus:outline-none"
+              className="text-theme focus:outline-none"
             >
               {isOpen ? (
                 <svg
@@ -99,7 +99,7 @@ const Nav = () => {
                 return (
                   <a
                     href={item.href}
-                    className="text-3xl font-medium text-neutral-700 transition-colors ease-in-out hover:text-primary-orange"
+                    className="text-3xl font-medium text-neutral-700 transition-colors ease-in-out hover:text-theme"
                     key={index}
                     onClick={closeMenu}
                   >
@@ -109,7 +109,7 @@ const Nav = () => {
               })}
               <button
                 onClick={() => openUrl(WP_LINK)}
-                className={`w-fit rounded-full bg-primary-orange px-4 py-2 text-base font-medium text-white hover:bg-orange-600`}
+                className="w-fit rounded-full px-4 py-2 text-base font-medium text-white bg-theme hover-bg-theme transition-colors"
               >
                 Contact
               </button>

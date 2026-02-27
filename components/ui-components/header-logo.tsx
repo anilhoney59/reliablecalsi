@@ -10,7 +10,7 @@ export default function HeaderLogo() {
     <Link href="/">
       <div className="flex flex-col">
         <h1
-          className={` ${playfair.className} text-2xl font-bold text-primary-orange`}
+          className={` ${playfair.className} text-2xl font-bold text-theme`}
         >
           {SITE_NAME}
         </h1>

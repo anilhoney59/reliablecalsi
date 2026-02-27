@@ -12,7 +12,7 @@ export default function HeroSection({}: Props) {
         <div className="">
           <h1 className="mt-3 text-center text-4xl font-semibold lg:text-left lg:text-6xl">
             Design your home <br /> from{" "}
-            <span className="text-primary-orange">Professionals</span>
+            <span className="text-theme">Professionals</span>
           </h1>
           <p className="mb-5 text-center text-sm font-medium text-neutral-600 md:text-xl">
             One-stop solution to all your architectural design needs

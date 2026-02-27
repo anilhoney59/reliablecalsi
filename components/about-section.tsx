@@ -13,7 +13,7 @@ export default function AboutSection({}: Props) {
       >
         {/* Left side */}
         <div className="flex-1">
-          <h2 className="mb-5 text-3xl font-semibold text-primary-orange md:mb-10 md:text-5xl">
+          <h2 className="mb-5 text-3xl font-semibold text-theme md:mb-10 md:text-5xl">
             A bit about me
           </h2>
           <p className="text-lg font-medium text-neutral-600">

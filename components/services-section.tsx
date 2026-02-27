@@ -8,7 +8,7 @@ export default function ServicesSection({}: Props) {
   return (
     <>
       <div className="layout-container mt-20" id="services">
-        <h2 className="text-3xl font-semibold text-primary-orange md:mb-10 md:text-5xl">
+        <h2 className="text-3xl font-semibold text-theme md:mb-10 md:text-5xl">
           We provide <br /> range of services
         </h2>
 

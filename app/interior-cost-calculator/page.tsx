@@ -6,84 +6,102 @@ import Footer from "../../components/footer";
 import Link from "next/link";
 import LeadMagnetModal from "../../components/ui-components/lead-magnet-modal";
 
-type HouseType = "basic" | "standard" | "luxury";
+type InteriorType = "basic" | "standard" | "luxury";
 type Lang = "en" | "hi";
 
-const RATES: Record<HouseType, number> = {
-  basic: 2000,
-  standard: 2500,
-  luxury: 3800,
+const RATES: Record<InteriorType, number> = {
+  basic: 765,
+  standard: 1145,
+  luxury: 1525,
 };
 
 // ── All UI text in both languages ──────────────────────────────────────────
 const T = {
   en: {
     backHome: "Back to Home",
-    pageTitle: "House Construction Cost in 2026",
-    pageSubtitle: "Get an instant estimate for your dream home",
-    areaLabel: "Buildup Area",
+    pageTitle: "Home Interior Cost in 2026",
+    pageSubtitle: "Get an instant interior estimate for your dream home",
+    areaLabel: "Carpet Area",
     areaUnit: "(in sq. ft.)",
-    areaPlaceholder: "e.g. 1200 sqft",
+    areaPlaceholder: "e.g. 1000 sqft",
     areaUnitSuffix: "sq. ft.",
-    areaError: "Please enter a valid buildup area.",
-    areaTooltip: "Buildup Area is the actual area where your house will be constructed. This is NOT the total plot area — it is the area remaining after deducting all setbacks & offsets from the plot boundary.",
-    homeTypeLabel: "Home Type",
+    areaError: "Please enter a valid carpet area.",
+    areaTooltip: "Carpet Area is the usable floor area inside your home where interior work will be done. This is the area measured from inner wall to inner wall, excluding wall thickness.",
+    interiorTypeLabel: "Interior Type",
     options: [
-      { label: "Basic House",    desc: "Economy construction with standard materials" },
-      { label: "Standard House", desc: "Quality construction with good finishes" },
-      { label: "Luxury House",   desc: "Premium construction with high-end finishes" },
+      {
+        label: "Basic Interior",
+        desc: "Wardrobe · Basic Kitchen · Bed · Sofa",
+      },
+      {
+        label: "Standard Interior",
+        desc: "Soft-Close Modular Kitchen · TV Unit · False Ceiling & more",
+      },
+      {
+        label: "Luxury Interior",
+        desc: "Acrylic Modular Kitchen · Top-Notch Hardware · Wall Panelling · Modern Design",
+      },
     ],
     calculateBtn: "Calculate Cost",
-    resultBanner: "Estimated Construction Cost",
+    resultBanner: "Estimated Interior Cost",
     breakdown: "Cost Breakdown",
-    civil: "Civil / Structure",
-    civilSub: "Foundation · RCC · Masonry · Plaster",
-    mep: "MEP Services",
-    mepSub: "Electrical · Plumbing · Sanitary",
-    finishing: "Finishing",
-    finishingSub: "Flooring · Doors/Windows · Paint · Kitchen",
+    material: "Material Cost",
+    materialSub: "Furniture · Fixtures · Fittings · Hardware",
+    labour: "Labour Cost",
+    labourSub: "Carpentry · Installation · Civil Work",
+    design: "Design Cost",
+    designSub: "Interior Design · 3D Visualisation · Project Management",
+    materialLabel: "Material + Labour + Design",
     disclaimer:
-      "* This is an approximate estimate. Actual costs may vary based on location, design complexity, and material choices.",
-    ctaTitle: "Need a detailed quote?",
-    ctaDesc: "Talk to our experts for a precise estimate tailored to your project.",
+      "* This is an approximate estimate. Actual costs may vary based on location, design complexity, brand choices and material quality.",
+    ctaTitle: "Need a detailed interior quote?",
+    ctaDesc: "Talk to our interior experts for a precise estimate tailored to your space.",
     ctaBtn: "Chat on WhatsApp",
-    houseLabel: "House",
   },
   hi: {
     backHome: "Home पर वापस जाएं",
-    pageTitle: "2026 में House Construction Cost",
-    pageSubtitle: "अपने सपनों के घर का तुरंत Estimate पाएं",
-    areaLabel: "Buildup Area",
+    pageTitle: "2026 में Home Interior Cost",
+    pageSubtitle: "अपने सपनों के घर का Interior Estimate तुरंत पाएं",
+    areaLabel: "Carpet Area",
     areaUnit: "(sq. ft. में)",
-    areaPlaceholder: "जैसे 1200 sqft",
+    areaPlaceholder: "जैसे 1000 sqft",
     areaUnitSuffix: "sq. ft.",
-    areaError: "कृपया एक सही Buildup Area दर्ज करें।",
-    areaTooltip: "Buildup Area वह actual area है जिसमें आपका घर बनाया जाएगा। यह पूरा Plot Area नहीं है — यह वह area है जो Plot की boundary से सभी Setbacks और Offsets काटने के बाद बचता है।",
-    homeTypeLabel: "Home का प्रकार",
+    areaError: "कृपया एक सही Carpet Area दर्ज करें।",
+    areaTooltip: "Carpet Area वह usable floor area है जहाँ Interior का काम होगा। यह inner wall से inner wall तक measure होता है, wall thickness को छोड़कर।",
+    interiorTypeLabel: "Interior का प्रकार",
     options: [
-      { label: "Basic House",    desc: "Standard Materials के साथ किफायती Construction" },
-      { label: "Standard House", desc: "अच्छी Finishing के साथ Quality Construction" },
-      { label: "Luxury House",   desc: "High-End Finishing के साथ Premium Construction" },
+      {
+        label: "Basic Interior",
+        desc: "Wardrobe · Basic Kitchen · Bed · Sofa",
+      },
+      {
+        label: "Standard Interior",
+        desc: "Soft-Close Modular Kitchen · TV Unit · False Ceiling और अधिक",
+      },
+      {
+        label: "Luxury Interior",
+        desc: "Acrylic Modular Kitchen · Top-Notch Hardware · Wall Panelling · Modern Design",
+      },
     ],
     calculateBtn: "Cost Calculate करें",
-    resultBanner: "अनुमानित Construction Cost",
+    resultBanner: "अनुमानित Interior Cost",
     breakdown: "Cost Breakdown",
-    civil: "Civil / Structure",
-    civilSub: "Foundation · RCC · Masonry · Plaster",
-    mep: "MEP Services",
-    mepSub: "Electrical · Plumbing · Sanitary",
-    finishing: "Finishing",
-    finishingSub: "Flooring · Doors/Windows · Paint · Kitchen",
+    material: "Material Cost",
+    materialSub: "Furniture · Fixtures · Fittings · Hardware",
+    labour: "Labour Cost",
+    labourSub: "Carpentry · Installation · Civil Work",
+    design: "Design Cost",
+    designSub: "Interior Design · 3D Visualisation · Project Management",
+    materialLabel: "Material + Labour + Design",
     disclaimer:
-      "* यह एक अनुमानित Estimate है। वास्तविक Cost, Location, Design और Materials के आधार पर अलग हो सकती है।",
-    ctaTitle: "Detailed Quote चाहिए?",
-    ctaDesc: "अपने Project के लिए सटीक Estimate हेतु हमारे Experts से बात करें।",
+      "* यह एक अनुमानित Estimate है। वास्तविक Cost, Location, Brand और Material Quality के आधार पर अलग हो सकती है।",
+    ctaTitle: "Detailed Interior Quote चाहिए?",
+    ctaDesc: "अपने Space के लिए सटीक Estimate हेतु हमारे Interior Experts से बात करें।",
     ctaBtn: "WhatsApp पर Chat करें",
-    houseLabel: "House",
   },
 };
 
-const HOUSE_KEYS: HouseType[] = ["basic", "standard", "luxury"];
+const INTERIOR_KEYS: InteriorType[] = ["basic", "standard", "luxury"];
 
 function formatINR(amount: number): string {
   return new Intl.NumberFormat("en-IN", {
@@ -93,34 +111,29 @@ function formatINR(amount: number): string {
   }).format(amount);
 }
 
-// Converts a rupee amount to a human-readable Indian words format
-// e.g. 1250000 → "12.5 Lac"   |    12500000 → "1.25 Cr"
 function formatWords(amount: number): string {
   if (amount >= 10000000) {
     const cr = amount / 10000000;
-    const rounded = parseFloat(cr.toFixed(2));
-    return `${rounded} Cr`;
+    return `${parseFloat(cr.toFixed(2))} Cr`;
   } else if (amount >= 100000) {
     const lac = amount / 100000;
-    const rounded = parseFloat(lac.toFixed(2));
-    return `${rounded} Lac`;
+    return `${parseFloat(lac.toFixed(2))} Lac`;
   } else if (amount >= 1000) {
     const k = amount / 1000;
-    const rounded = parseFloat(k.toFixed(1));
-    return `${rounded}K`;
+    return `${parseFloat(k.toFixed(1))}K`;
   }
   return amount.toString();
 }
 
 // ── Report sneak-peek slider (lazy-loaded, ping-pong) ─────────────────────────
-const REPORT_SLIDES = [
-  { src: "/assets/images/c_gif1.webp", label: "Cost Breakdown"       },
-  { src: "/assets/images/c_gif2.webp", label: "Room-wise Estimates"  },
-  { src: "/assets/images/c_gif3.webp", label: "Material Guide"       },
-  { src: "/assets/images/c_gif4.webp", label: "Timeline & Tips"      },
+const INTERIOR_REPORT_SLIDES = [
+  { src: "/assets/images/c_gif1.webp", label: "Room-wise Costs"    },
+  { src: "/assets/images/c_gif2.webp", label: "What's Included"    },
+  { src: "/assets/images/c_gif3.webp", label: "Material Guide"     },
+  { src: "/assets/images/c_gif4.webp", label: "Timeline & Tips"    },
 ] as const;
 
-function ReportPreviewSlider() {
+function InteriorReportPreviewSlider() {
   const [current, setCurrent] = useState(0);
   const [visible, setVisible] = useState(false);
   const wrapRef               = useRef<HTMLDivElement>(null);
@@ -144,8 +157,8 @@ function ReportPreviewSlider() {
     const id = setInterval(() => {
       setCurrent(prev => {
         let next = prev + dirRef.current;
-        if (next >= REPORT_SLIDES.length)  { dirRef.current = -1; next = REPORT_SLIDES.length - 2; }
-        else if (next < 0)                 { dirRef.current =  1; next = 1; }
+        if (next >= INTERIOR_REPORT_SLIDES.length)  { dirRef.current = -1; next = INTERIOR_REPORT_SLIDES.length - 2; }
+        else if (next < 0)                          { dirRef.current =  1; next = 1; }
         return next;
       });
     }, 2000);
@@ -161,7 +174,7 @@ function ReportPreviewSlider() {
         >
           {/* Crossfade image layer */}
           <div className="relative h-44">
-            {REPORT_SLIDES.map((slide, i) => (
+            {INTERIOR_REPORT_SLIDES.map((slide, i) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={slide.src}
@@ -176,11 +189,11 @@ function ReportPreviewSlider() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none rounded-2xl" />
             {/* Caption */}
             <p className="absolute bottom-2 left-3 text-white text-xs font-semibold z-10 drop-shadow-sm">
-              {REPORT_SLIDES[current].label}
+              {INTERIOR_REPORT_SLIDES[current].label}
             </p>
             {/* Pill dot indicators */}
             <div className="absolute bottom-3 right-3 flex gap-1 z-10">
-              {REPORT_SLIDES.map((_, i) => (
+              {INTERIOR_REPORT_SLIDES.map((_, i) => (
                 <span
                   key={i}
                   className="block rounded-full transition-all duration-300"
@@ -205,23 +218,22 @@ function ReportPreviewSlider() {
   );
 }
 
-export default function ConstructionCostCalculator() {
-  const [lang, setLang]           = useState<Lang>("en");
-  const [area, setArea]           = useState<string>("");
-  const [houseType, setHouseType] = useState<HouseType>("standard");
-  const [result, setResult]       = useState<number | null>(null);
-  const [error, setError]         = useState<string>("");
+export default function InteriorCostCalculator() {
+  const [lang, setLang]               = useState<Lang>("en");
+  const [area, setArea]               = useState<string>("");
+  const [interiorType, setInteriorType] = useState<InteriorType>("standard");
+  const [result, setResult]           = useState<number | null>(null);
+  const [error, setError]             = useState<string>("");
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
   const [showReportModal, setShowReportModal] = useState<boolean>(false);
   const [toastEmail, setToastEmail] = useState<string>("");
-  const inputRef                  = useRef<HTMLInputElement>(null);
-  const tooltipRef                = useRef<HTMLDivElement>(null);
-  const hasShaken                 = useRef(false);
-  const [shakeCTA, setShakeCTA]   = useState(false);
+  const inputRef                      = useRef<HTMLInputElement>(null);
+  const tooltipRef                    = useRef<HTMLDivElement>(null);
+  const hasShaken                     = useRef(false);
+  const [shakeCTA, setShakeCTA]       = useState(false);
 
   const t = T[lang];
 
-  // Auto-focus the input on page load
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
@@ -269,39 +281,37 @@ export default function ConstructionCostCalculator() {
       return;
     }
     setError("");
-    setResult(areaNum * RATES[houseType]);
+    setResult(areaNum * RATES[interiorType]);
   };
 
-  // Reset result when lang changes so stale translated text doesn't show
   const toggleLang = () => {
     setLang((l) => (l === "en" ? "hi" : "en"));
     setResult(null);
     setError("");
   };
 
-  const civil    = result ? Math.round(result * 0.55) : 0;
-  const mep      = result ? Math.round(result * 0.15) : 0;
-  const finishing = result ? Math.round(result * 0.30) : 0;
+  // Breakdown: Material 55%, Labour 37%, Design 8%
+  const materialCost = result ? Math.round(result * 0.55) : 0;
+  const labourCost   = result ? Math.round(result * 0.37) : 0;
+  const designCost   = result ? Math.round(result * 0.08) : 0;
 
-  const houseIndex = HOUSE_KEYS.indexOf(houseType);
+  const interiorIndex = INTERIOR_KEYS.indexOf(interiorType);
 
   return (
     <div className="min-h-screen pb-10">
 
-      {/* ── Hero Image (clean — no text overlay) ── */}
+      {/* ── Hero Image ── */}
       <div className="relative w-full mt-16 overflow-hidden" style={{ maxHeight: "200px" }}>
         <Image
-          src="/assets/images/home_image123.webp"
-          alt="Home Construction Cost Calculator"
+          src="/assets/images/interior_cost_image.webp"
+          alt="Home Interior Cost Calculator"
           width={800}
           height={200}
           priority
           className="w-full object-cover"
           style={{ maxHeight: "200px", objectPosition: "center" }}
         />
-        {/* Subtle bottom fade so image blends into page bg */}
         <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent" />
-        {/* Back link — top-left corner only */}
         <div className="absolute top-3 left-4">
           <Link
             href="/"
@@ -319,9 +329,9 @@ export default function ConstructionCostCalculator() {
       <div className="px-4 pt-4 pb-1 text-center">
         <h1 className="text-xl font-bold text-neutral-800 leading-tight">
           {lang === "en" ? (
-            <>House Construction Cost <span className="text-theme">in 2026</span></>
+            <>Home Interior Cost <span className="text-theme">in 2026</span></>
           ) : (
-            <>2026 में <span className="text-theme">घर निर्माण लागत</span></>
+            <>2026 में <span className="text-theme">Home Interior Cost</span></>
           )}
         </h1>
         <p className="text-xs text-neutral-500 mt-1">{t.pageSubtitle}</p>
@@ -331,7 +341,7 @@ export default function ConstructionCostCalculator() {
       <div className="px-4 max-w-lg mx-auto mt-4">
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-100 p-5">
 
-          {/* Language Toggle — sits above the area input */}
+          {/* Language Toggle */}
           <div className="flex items-center justify-between mb-5">
             <span className="text-xs font-semibold text-neutral-500 uppercase tracking-wide">
               {lang === "en" ? "Language" : "भाषा"}
@@ -341,13 +351,11 @@ export default function ConstructionCostCalculator() {
               aria-label="Toggle language"
               className="relative flex items-center h-8 w-[120px] rounded-full bg-neutral-100 border border-neutral-200 p-0.5 transition-all"
             >
-              {/* Sliding pill */}
               <span
                 className={`absolute top-0.5 bottom-0.5 w-[58px] rounded-full bg-theme shadow-sm transition-all duration-300 ${
                   lang === "en" ? "left-0.5" : "left-[59px]"
                 }`}
               />
-              {/* English label */}
               <span
                 className={`relative z-10 w-[60px] text-center text-xs font-semibold transition-colors duration-200 ${
                   lang === "en" ? "text-white" : "text-neutral-500"
@@ -355,7 +363,6 @@ export default function ConstructionCostCalculator() {
               >
                 English
               </span>
-              {/* Hindi label */}
               <span
                 className={`relative z-10 w-[60px] text-center text-xs font-semibold transition-colors duration-200 ${
                   lang === "hi" ? "text-white" : "text-neutral-500"
@@ -366,21 +373,18 @@ export default function ConstructionCostCalculator() {
             </button>
           </div>
 
-          {/* Buildup area input */}
+          {/* Carpet area input */}
           <div className="mb-6">
             <div className="flex items-center gap-1.5 mb-2">
-              <label
-                htmlFor="area"
-                className="text-sm font-semibold text-neutral-700"
-              >
+              <label htmlFor="area" className="text-sm font-semibold text-neutral-700">
                 {t.areaLabel}{" "}
                 <span className="font-normal text-neutral-400">{t.areaUnit}</span>
               </label>
-              {/* ⓘ Info icon with hover tooltip */}
+              {/* ⓘ Tooltip */}
               <div className="relative flex items-center" ref={tooltipRef}>
                 <button
                   type="button"
-                  aria-label="What is Buildup Area?"
+                  aria-label="What is Carpet Area?"
                   onMouseEnter={() => setShowTooltip(true)}
                   onMouseLeave={() => setShowTooltip(false)}
                   onFocus={() => setShowTooltip(true)}
@@ -393,7 +397,6 @@ export default function ConstructionCostCalculator() {
                 {showTooltip && (
                   <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 z-50 w-64 rounded-xl bg-neutral-800 text-white text-xs leading-relaxed p-3 shadow-xl">
                     {t.areaTooltip}
-                    {/* Arrow */}
                     <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-neutral-800" />
                   </div>
                 )}
@@ -424,14 +427,14 @@ export default function ConstructionCostCalculator() {
             )}
           </div>
 
-          {/* House Type selection */}
+          {/* Interior Type selection */}
           <div className="mb-6">
             <p className="text-sm font-semibold text-neutral-700 mb-3">
-              {t.homeTypeLabel}
+              {t.interiorTypeLabel}
             </p>
             <div className="flex flex-col gap-3">
-              {HOUSE_KEYS.map((key, idx) => {
-                const isSelected = houseType === key;
+              {INTERIOR_KEYS.map((key, idx) => {
+                const isSelected = interiorType === key;
                 const option = t.options[idx];
                 return (
                   <label
@@ -455,11 +458,11 @@ export default function ConstructionCostCalculator() {
                     </div>
                     <input
                       type="radio"
-                      name="houseType"
+                      name="interiorType"
                       value={key}
                       checked={isSelected}
                       onChange={() => {
-                        setHouseType(key);
+                        setInteriorType(key);
                         setResult(null);
                       }}
                       className="sr-only"
@@ -498,11 +501,15 @@ export default function ConstructionCostCalculator() {
                 {t.resultBanner}
               </p>
               <p className="text-white text-3xl font-bold">{formatINR(result)}</p>
-              <p className="text-white/80 text-sm font-semibold mt-0.5 tracking-wide">({formatWords(result)})</p>
-              <p className="text-white/70 text-xs font-medium mt-0.5 tracking-wide">Material + Labor</p>
+              <p className="text-white/80 text-sm font-semibold mt-0.5 tracking-wide">
+                ({formatWords(result)})
+              </p>
+              <p className="text-white/70 text-xs font-medium mt-0.5 tracking-wide">
+                {t.materialLabel}
+              </p>
               <p className="text-white/80 text-xs mt-1">
                 {parseFloat(area).toLocaleString("en-IN")} {t.areaUnitSuffix} ·{" "}
-                {t.options[houseIndex].label}
+                {t.options[interiorIndex].label}
               </p>
             </div>
 
@@ -513,8 +520,8 @@ export default function ConstructionCostCalculator() {
                 <p className="text-sm font-extrabold text-neutral-800 leading-snug">
                   📄{" "}
                   {lang === "en"
-                    ? "Want a detailed PDF report with room-wise estimates, material guide & tips?"
-                    : "Room-wise Estimates, Material Guide और Tips के साथ Detailed PDF Report चाहिए?"}
+                    ? "Want a detailed PDF with room-wise breakdown, material guide & design tips?"
+                    : "Room-wise Interior Breakdown, Material Guide और Design Tips के साथ Detailed PDF चाहिए?"}
                 </p>
                 <p className="text-[11px] text-theme font-semibold mt-1">
                   {lang === "en" ? "✓ Free  ·  ✓ Instant  ·  ✓ Sent to your email" : "✓ मुफ्त  ·  ✓ तुरंत  ·  ✓ Email पर भेजें"}
@@ -528,7 +535,7 @@ export default function ConstructionCostCalculator() {
 
               {/* Lazy-loaded ping-pong image slider */}
               <div className="mb-4">
-                <ReportPreviewSlider />
+                <InteriorReportPreviewSlider />
               </div>
 
               <button
@@ -550,7 +557,7 @@ export default function ConstructionCostCalculator() {
           <p className="text-sm font-semibold text-neutral-700 mb-1">{t.ctaTitle}</p>
           <p className="text-xs text-neutral-400 mb-3">{t.ctaDesc}</p>
           <a
-            href="https://wa.me/917014370245?text=Hi,%20I%20would%20like%20a%20detailed%20construction%20cost%20estimate"
+            href="https://wa.me/917014370245?text=Hi,%20I%20would%20like%20a%20detailed%20interior%20cost%20estimate"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-green-200 hover:bg-green-500 active:scale-95 transition-all"
@@ -575,13 +582,13 @@ export default function ConstructionCostCalculator() {
           onClose={() => setShowReportModal(false)}
           lang={lang}
           calcData={{
-            reportType: "construction",
-            area:       parseFloat(area),
-            houseType,
-            totalCost:  result,
-            civil,
-            mep,
-            finishing,
+            reportType:   "interior",
+            area:         parseFloat(area),
+            interiorType,
+            totalCost:    result,
+            materialCost,
+            labourCost,
+            designCost,
           }}
           onQueued={(queuedEmail) => {
             setToastEmail(queuedEmail);
