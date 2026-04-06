@@ -24,7 +24,9 @@ export default function page() {
   return (
     <div className="">
       <HeroSection />
-      <ProjectsSlider />
+      <div id="projects">
+        <ProjectsSlider />
+      </div>
       <ServicesSection />
       <AboutSection />
       <CTASection />

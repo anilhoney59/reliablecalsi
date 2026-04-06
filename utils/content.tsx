@@ -17,15 +17,15 @@ export const openUrl = (WP_LINK: string) => {
 export const navbarItems: navbarItemsProps[] = [
   {
     title: "Projects",
-    href: "#projects",
+    href: "/#projects",
   },
   {
     title: "Services",
-    href: "#services",
+    href: "/#services",
   },
   {
     title: "About",
-    href: "#about",
+    href: "/#about",
   },
   {
     title: "House Cost Calculator",

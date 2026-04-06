@@ -13,7 +13,7 @@ import "swiper/css/effect-fade";
 export default function ProjectsSlider() {
   return (
     <>
-      <div className="layout-container mt-14" id="projects">
+      <div className="layout-container mt-14">
         <h2 className="text-3xl font-semibold text-theme md:mb-10 md:text-5xl">
           Some of our <br /> selected projects
         </h2>

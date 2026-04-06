@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.101.1",
     "@types/nodemailer": "^7.0.11",
     "framer-motion": "^11.1.7",
     "jquery": "^3.7.1",
