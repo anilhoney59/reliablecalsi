@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generateConstructionPDF, ConstructionReportData } from "../../../lib/generate-construction-pdf";
 import { generateInteriorPDF, InteriorReportData } from "../../../lib/generate-interior-pdf";
-import { supabase } from "../../../lib/supabase";
+import { getSupabase } from "../../../lib/supabase";
 
 const SENDER_EMAIL  = process.env.GMAIL_USER    ?? "reliabledesigns9@gmail.com";
 const BREVO_API_KEY = process.env.BREVO_API_KEY ?? "";
@@ -439,16 +439,19 @@ export async function POST(req: NextRequest) {
     }
 
     // ── Log lead in Supabase report_download table ────────────────────────────
-    supabase
-      .from("report_download")
-      .insert({
-        name:            name.trim(),
-        email:           email.trim(),
-        calculator_type: reportType as string,
-      })
-      .then(({ error }) => {
-        if (error) console.error("[send-report] Supabase insert error:", error.message);
-      });
+    const supabase = getSupabase();
+    if (supabase) {
+      supabase
+        .from("report_download")
+        .insert({
+          name:            name.trim(),
+          email:           email.trim(),
+          calculator_type: reportType as string,
+        })
+        .then(({ error }) => {
+          if (error) console.error("[send-report] Supabase insert error:", error.message);
+        });
+    }
 
     // ── Generate PDF ──────────────────────────────────────────────────────────
     let pdfBuffer:   Buffer;
